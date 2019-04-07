@@ -1,0 +1,4 @@
+name = "DoubletFinder"
+uuid = "882b6896-594f-11e9-27fc-67141ecdab87"
+authors = ["sameeresque <sameeresque@protonmail.com>"]
+version = "0.1.0"
