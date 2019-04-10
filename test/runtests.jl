@@ -26,4 +26,4 @@ end;
     @test iscontained(test_array,3.25) == true            
 end;
     
-end; # linefinder
+    end; #DoubletFinder
