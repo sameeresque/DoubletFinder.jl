@@ -1,7 +1,7 @@
-
+using DoubletFinder
 using Test
 
-@testset "linefinder" begin
+@testset "DoubletFinder" begin
 test_array=[2.1,3.0,0.8,0.7,0.5,0.4,0.2,1.01,1.33,3.88,0.99,0.96,0.98,1.23,4.55]
 @testset "Testing linear algebra results" begin
    @test 1 == 1
@@ -24,10 +24,6 @@ end;
 @testset "iscontained" begin
     @test iscontained(test_array,66.0) == false
     @test iscontained(test_array,3.25) == true            
-end;
-@testset "Regression_test" begin
-    @test possible_doublets(df_clean,zEm,blocks_3s,species_dict,Dict("SiIV" => (-70000,10000)))==possible_doublets_parallel(df_clean,zEm,blocks_3s,species_dict,
-        Dict("SiIV" => (-70000,10000))) 
 end;
     
 end; # linefinder

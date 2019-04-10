@@ -1,8 +1,3 @@
-path="./"
-const c_light=299792.458; # speed of light in km/s
-const LYA = 1215.6; # Lyman alpha rest-wavelength in angstrom
-
-
 """
     findV(zAbs, zEm)
 
@@ -93,8 +88,6 @@ function sep_blocks(blocks::Array{Tuple{Int64,Int64},1})
     resize!(n_blocks,n_n_blocks-1)
     return n_blocks
 end
-
-
 """
     threesigmadet(df,tuple_array)
 
@@ -123,9 +116,8 @@ from the current path. It is a library containing information on commonly observ
 function atomicdata(all_ions::Array{String,1}=["NV","CIV","SiIV","OVI","MgII","MgI","FeII","AlII","AlIII","MnII","CrII","ZnII","Lya","HI","NeVIII"])
     #species = Dict()
     # The data file containing atomic information of interest
-    @assert isfile(joinpath(path,"atoms_UVES.csv"))
-    transition_library = joinpath(path,"atoms_UVES.csv")
-    df_atomic_data=CSV.read(transition_library,header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
+    @assert isfile("src/atoms_UVES.csv")
+    df_atomic_data=CSV.read("src/atoms_UVES.csv",header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
 
     #delete unused column
     deletecols!(df_atomic_data, :Column6)
@@ -239,8 +231,6 @@ function datacleanandtag(df::DataFrame,telluriclines::Array{Tuple{Float64,Float6
     df[:MASK][df[:TAG].==false] .=0;    
     return df
 end
-
-
 """
     iscontained(array,value)
 
@@ -254,7 +244,6 @@ function iscontained(array::Array{Float64,1},value::Float64)
         return false
     end
 end                                    
-
 """
     getINFO(df,zEm,blocks,indice,ion,transition,species_dictionary)
 
@@ -342,22 +331,4 @@ function possible_doublets(df::DataFrame,zEm::Float64,blocks::Array{Tuple{Int64,
     end
     return doublet_array
 end        
-           
-function DoubletFinder(file::String,zEm::Float64,search_ions::Dict{String,Tuple{Int64,Int64}})
-    path="./"
-    filename=joinpath(path,file)
-    df_spectral_data = CSV.read(filename,header=true,delim='\t',allowmissing=:none);
-    # dictionary of species
-    species_dict=atomicdata();
-    # red and blue limits 
-    rb_limit=rb_limits(df_spectral_data[:WAVELENGTH],zEm,species_dict);
-    # DataFrame of interest
-    df_int=df_interest(df_spectral_data,zEm,rb_limit[1],rb_limit[2],species_dict);
-    # Cleaned DataFrame of interest
-    df_clean=datacleanandtag(df_int);
-    # Locations of possible absorption troughs
-    blocks=getblocks1(df_clean[:FLUX]);
-    #Locations of 3 sigma signficant absorption troughs
-    blocks_3s=sep_blocks(blocks)[pmap((x->threesigmadet(df_clean,x)),sep_blocks(blocks),batch_size=Int(round(length(sep_blocks(blocks))/nworkers())))];
-    return possible_doublets_parallel(df_clean,zEm,blocks_3s,species_dict,search_ions)
-end        
+
