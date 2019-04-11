@@ -198,7 +198,7 @@ end
         
         # The data file containing atomic information of interest
         path=dirname(pathof(DoubletFinder))
-        path_atomicfile=joinpath(path_atomicfile,"/atoms_UVES.csv")
+        path_atomicfile=joinpath(path,"/atoms_UVES.csv")
         @assert isfile(path_atomicfile)
         df_atomic_data=CSV.read(path_atomicfile,header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
 
