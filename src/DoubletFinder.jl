@@ -198,7 +198,7 @@ end
         #species = Dict()
         # The data file containing atomic information of interest
         
-        df_atomic_data=CSV.read("src/atoms_UVES.csv",header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
+        df_atomic_data=CSV.read("atoms_UVES.csv",header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
 
         #delete unused column
         deletecols!(df_atomic_data, :Column6)
