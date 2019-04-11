@@ -195,10 +195,12 @@ end
 
     """
     function atomicdata(all_ions::Array{String,1}=["NV","CIV","SiIV","OVI","MgII","MgI","FeII","AlII","AlIII","MnII","CrII","ZnII","Lya","HI","NeVIII"])
-        #species = Dict()
-        # The data file containing atomic information of interest
         
-        df_atomic_data=CSV.read("atoms_UVES.csv",header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
+        # The data file containing atomic information of interest
+        path=dirname(pathof(DoubletFinder))
+        path_atomicfile=joinpath(path_atomicfile,"/atoms_UVES.csv")
+        @assert isfile(path_atomicfile)
+        df_atomic_data=CSV.read(path_atomicfile,header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
 
         #delete unused column
         deletecols!(df_atomic_data, :Column6)
