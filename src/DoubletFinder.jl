@@ -197,7 +197,7 @@ end
     function atomicdata(all_ions::Array{String,1}=["NV","CIV","SiIV","OVI","MgII","MgI","FeII","AlII","AlIII","MnII","CrII","ZnII","Lya","HI","NeVIII"])
         #species = Dict()
         # The data file containing atomic information of interest
-        @assert isfile("src/atoms_UVES.csv")
+        
         df_atomic_data=CSV.read("src/atoms_UVES.csv",header=["Ion","Rest_Wavelength","f","Gamma","Mass","Column6"],delim='\t')
 
         #delete unused column
