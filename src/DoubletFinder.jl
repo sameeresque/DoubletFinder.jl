@@ -30,27 +30,27 @@ Pkg.activate(".")
 @everywhere Pkg.activate(".")
 Pkg.instantiate()
 using CSV
-#@everywhere using CSV
+@everywhere using CSV
 using PyCall
-#@everywhere using PyCall
+@everywhere using PyCall
 using Test
-#@everywhere using Test
+@everywhere using Test
 using Statistics
-#@everywhere using Statistics
+@everywhere using Statistics
 using DataFrames, Query, DataFramesMeta
-#@everywhere using DataFrames, Query, DataFramesMeta
+@everywhere using DataFrames, Query, DataFramesMeta
 using Images
-#@everywhere using Images
+@everywhere using Images
 using LinearAlgebra
-#@everywhere using LinearAlgebra
+@everywhere using LinearAlgebra
 using DSP
-#@everywhere using DSP
+@everywhere using DSP
 using Printf
-#@everywhere using Printf
+@everywhere using Printf
 ss = pyimport("scipy.signal")
-#@everywhere ss = pyimport("scipy.signal")
+@everywhere ss = pyimport("scipy.signal")
 using Distributions
-#@everywhere using Distributions
+@everywhere using Distributions
 
 
 @everywhere const c_light=299792.458; # speed of light in km/s
