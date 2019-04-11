@@ -28,7 +28,7 @@ using Pkg
 @everywhere using Pkg
 Pkg.activate(".")
 @everywhere Pkg.activate(".")
-#@everywhere Pkg.instantiate()
+Pkg.instantiate()
 using CSV
 @everywhere using CSV
 using PyCall
