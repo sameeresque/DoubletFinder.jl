@@ -15,6 +15,23 @@ The plot on the left shows the computation times for different number of species
 
 From the command prompt issue 
 ```
-julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/eford/ExamplePkg.jl"))'
+julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/sameeresque/DoubletFinder.jl.git"))'
 ```
-# How to use the package
+If you have access to multiple processors, n, you can start your Julia session like so
+
+```
+julia -p n
+```
+
+# How to use the package 
+- Demonstrated using an example: `raw_data.txt` is the spectrum file (csv format) containing columns of wavelength, flux, error in flux. emission_redshift is the emission redshift of the quasar, and the third argument is a dictionary of species and the search windows in km/s.
+```
+using DoubletFinder
+@Find('/raw_data.txt',emission_redshift=2.28,Dict("SiIV"=>(-70000,10000),"CIV"=>(-70000,10000)))
+```
+
+# Other functions available within this module
+
+There are other functions that are available within this module and they can be invoked by using for e.g., `DoubletFinder.getblocks1`. To know more about what each function does access the documentation using for e.g.,`?getblocks1`
+
+
