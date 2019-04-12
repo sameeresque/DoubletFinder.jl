@@ -32,6 +32,14 @@ using DoubletFinder
 
 # Other functions available within this module
 
-There are other functions that are available within this module and they can be invoked by using for e.g., `DoubletFinder.getblocks1`. To know more about what each function does access the documentation using for e.g.,`?getblocks1`
+There are other functions that are available within this module and they can be invoked by using for e.g., `DoubletFinder.getblocks1`. To know more about what each function does access the documentation using for e.g.,
+`?getblocks1`
+
+![other functions](https://github.com/sameeresque/DoubletFinder.jl/blob/master/examples/comparison.png)
+
+# Acknowledgement
+
+- Eric Ford, Professor, Penn State Astronomy & Astrophysics
+- Arvind Gupta, Graduate Student, Penn State Astronomy & Astrophysics
 
 
