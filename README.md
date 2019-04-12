@@ -9,6 +9,6 @@ The module has been constructed to utilize parallel computing capabilities if av
 
 ![performance](https://github.com/sameeresque/DoubletFinder.jl/blob/master/examples/comparison.png)
 
-The plot on the left shows the computation times for different number of species for different number of processors. On the right, we see the expected times assuming an ideal case, where the expected time with p processors is T/p, T being time for computation on a single processor. The difference between the actual and expected times, the overhead, is because of the communication between the master and the slaves, load unbalance (?), and also partly due to the fact that some portion of the code is inherently sequential. 
+The plot on the left shows the computation times for different number of species for different number of processors. On the right, we see the expected times assuming an ideal case, where the expected time with p processors is T/p, T being time for computation on a single processor. The difference between the actual and expected times, the overhead, is because of the communication between the master and the slaves, load unbalance, and also partly due to the fact that some portion of the code is inherently sequential. 
 
 
