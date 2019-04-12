@@ -35,7 +35,7 @@ using DoubletFinder
 There are other functions that are available within this module and they can be invoked by using for e.g., `DoubletFinder.getblocks1`. To know more about what each function does access the documentation using for e.g.,
 `?getblocks1`
 
-![other functions](https://github.com/sameeresque/DoubletFinder.jl/blob/master/examples/comparison.png)
+![other functions](https://github.com/sameeresque/DoubletFinder.jl/blob/master/examples/Screenshot%20from%202019-04-12%2016-01-10.png)
 
 # Acknowledgement
 
