@@ -37,9 +37,4 @@ There are other functions that are available within this module and they can be 
 
 ![other functions](https://github.com/sameeresque/DoubletFinder.jl/blob/master/examples/Screenshot%20from%202019-04-12%2016-01-10.png)
 
-# Acknowledgement
-
-- Eric Ford, Professor, Penn State Astronomy & Astrophysics
-- Arvind Gupta, Graduate Student, Penn State Astronomy & Astrophysics
-
 
