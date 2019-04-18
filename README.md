@@ -27,7 +27,7 @@ julia -p n
 - Demonstrated using an example: `raw_data.txt` is the spectrum file (csv format) containing columns of wavelength, flux, error in flux. emission_redshift is the emission redshift of the quasar, and the third argument is a dictionary of species and the search windows in km/s.
 ```
 using DoubletFinder
-@Find('/raw_data.txt',emission_redshift=2.28,Dict("SiIV"=>(-70000,10000),"CIV"=>(-70000,10000)))
+@Find("raw_data.txt",emission_redshift=2.28,Dict("SiIV"=>(-70000,10000),"CIV"=>(-70000,10000)))
 ```
 
 # Other functions available within this module
